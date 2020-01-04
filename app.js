@@ -3,7 +3,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
-var indexRouter = require("./routes/index");
+var Router = require("./routes/api.router");
 
 var app = express();
 
@@ -21,9 +21,8 @@ mongoose.connect(uri, {
   useUnifiedTopology: true,
   useFindAndModify: false
 });
-const connection = mongoose.connection;
 //mongooes connetion -------->
 
-app.use("/", indexRouter);
+app.use("/", Router);
 
 module.exports = app;
