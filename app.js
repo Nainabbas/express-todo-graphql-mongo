@@ -3,6 +3,8 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
+require("dotenv").config();
+
 var Router = require("./routes/api.router");
 
 var app = express();
@@ -14,7 +16,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 //mongooes connetion -------->
-const uri = "mongodb://127.0.0.1:27017/todo";
+const uri = process.env.DB_URI;
 mongoose.connect(uri, {
   useCreateIndex: true,
   useNewUrlParser: true,
