@@ -62,10 +62,10 @@ const Mutation = new GraphQLObjectType({
         isDone: { type: GraphQLBoolean }
       },
       resolve(parent, args) {
-        return Todo.findByIdAndUpdate(args.id, {
+       return Todo.findByIdAndUpdate(args.id, {
           todo: args.todo,
           isDone: args.isDone
-        });
+        },{new: true});
       }
     },
     deleteTodo: {
