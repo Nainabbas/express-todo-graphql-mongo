@@ -22,7 +22,9 @@ mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
-});
+})
+.then(()=> console.log('Database connected'))
+.catch(e => console.log(e.message));
 //mongooes connetion -------->
 
 app.use("/", Router);
